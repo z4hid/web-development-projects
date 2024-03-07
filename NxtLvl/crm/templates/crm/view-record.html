@@ -1,0 +1,48 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+
+    <div class="card text-center">
+
+        <div class="card-body">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+
+            <strong>
+          
+                &nbsp;  &nbsp;
+    
+                {{record.first_name|upper}}
+                {{record.last_name}}
+    
+            </strong>
+            <hr>
+
+            <p><strong>ID: </strong>{{record.id}}</p> 
+            <p><strong>Email: </strong>{{record.email}}</p>
+            <p><strong>Phone Number: </strong>{{record.phone}}</p>
+            <p><strong>Address: </strong>{{record.address}}</p>
+            <p><strong>City: </strong>{{record.city}}</p>
+            <p><strong>Country: </strong>{{record.country}}</p>
+            <p><strong>Company Name: </strong>{{record.company_name}}</p>
+            <p><strong>Work Requirements: </strong>{{record.work_info}}</p>
+            <p><strong>Amount: </strong>{{record.deal_amount}}</p>
+            <p><strong>Start Date: </strong>{{record.start_date}}</p>
+            <p><strong>Current Status: </strong>{{record.get_current_status_display}}</p>
+            <p><strong>Progress Percentege: </strong>{{record.progress_percentage}}</p>
+            <p><strong>Delivery Date: </strong>{{record.delivery_date}}</p>
+            <p><strong>Date Joined: </strong>{{record.creation_date}}</p>
+           
+
+        </div>
+
+    </div>
+
+    <br>
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary">Return to Dashboard &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    &nbsp;
+    <a href="{% url 'update-record' record.id %}" class="btn btn-info">Update Record &nbsp; <i class="fa fa-plus-square" aria-hidden="true"></i> </a>
+    &nbsp;
+    <a href="{% url 'delete-record' record.id %}" class="btn btn-danger">Delete Record &nbsp; <i class="fa fa-minus-square" aria-hidden="true"></i></a>
+    &nbsp;
+
+{% endblock %}
